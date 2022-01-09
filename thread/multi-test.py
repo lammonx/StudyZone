@@ -25,10 +25,8 @@ def multi():
     for i in range(100):
         threads.append(threading.Thread(target=funs.fun, kwargs={
             'fun_obj': test, 'fun_name': 'add', 'i': i}))
-
     for t in threads:
         t.start()
-
     for t in threads:
         t.join()
 
