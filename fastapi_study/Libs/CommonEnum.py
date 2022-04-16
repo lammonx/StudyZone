@@ -8,4 +8,4 @@ dict_a = dict({'obj1': 1, 'obj2': 2})
 
 enum_a = Enum('a', dict_a, module=__name__)
 
-print(enum_a.obj1)
+print(enum_a['obj1'].value)
