@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>测试前端</title>
+</head>
+<body>
+<label>
+    部门一:
+    <select name="name" form="login_form">
+        <script type="text/javascript">
+            let a = {
+                "A": "啊啊",
+                "B": "宝宝",
+                "C": "尺寸"
+            }
+            for (let key in a) {
+                document.writeln("<option value=\"" + key + "\">" + a[key] + "</option>")
+            }
+        </script>
+    </select>
+</label>
+<br>
+<label>
+    部门二:
+    <select name="name" form="login_form">
+        <script type="text/javascript">
+            let b = {
+                "xuw": "徐#伟",
+                "liym": "李#萌",
+                "wangxg": "王#纲"
+            }
+            for (let key in b) {
+                document.writeln("<option value=\"" + key + "\">" + b[key] + "</option>")
+            }
+        </script>
+    </select>
+</label>
+<script type="text/javascript">
+    let fun_name = 'print_name2'
+    document.writeln("<form method=\"get\" action=\"http://127.0.0.1:8086/print/" + fun_name + "\" id=\"login_form\">")
+    document.writeln("<button formtarget=\"_blank\">快捷登录</button>")
+    document.writeln("<button formtarget=\"_blank\">普通登录1</button>")
+    document.writeln("<button formtarget=\"_blank\">普通登录2</button>")
+    document.writeln("</form>")
+</script>
+<!--<form method="get" action="http://127.0.0.1:8086/print/print_name" id="login_form">-->
+<!--    <button formtarget="_blank">快捷登录</button>-->
+<!--    <button formtarget="_blank">普通登录</button>-->
+<!--</form>-->
+<label>
+    <script type="text/javascript">
+        const url_num = 'http://127.0.0.1:8086/print/print_num?num=123';
+        const url_json = 'http://127.0.0.1:8086/print/print_json';
+        fetch(url_json).then(res => res.json().then(res_json => console.log(res_json)));
+        document.getElementById("demo")
+
+        function set_json(res_json) {
+            document.write("<br>")
+            document.write("<h1>系统登录</h1>")
+            document.write("")
+            for (let dept in res_json) {
+                let user_json = res_json[dept]
+                for (let userid in user_json) {
+                    const username = user_json[userid];
+                    console.log(userid);
+                    console.log(username);
+                    document.write("<a href='http://127.0.0.1:8086/print/print_name?name=" + userid + "' target='_blank'>" + username + " </a>");
+                }
+                document.write("<br>")
+            }
+        }
+    </script>
+</label>
+</body>
+</html>

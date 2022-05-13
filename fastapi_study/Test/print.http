@@ -1,0 +1,8 @@
+# curl -X 'GET'
+#  'http://127.0.0.1:8086/print/print_num?num=123'
+#  -H 'accept: application/json'
+GET http://127.0.0.1:8086/print/print_num?num=123
+accept: application/json
+
+###
+
