@@ -3,9 +3,17 @@
 # @Author   : Lammonx
 # @DateTime : 2022/1/16 21:27
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Query, Body
 
 print_ = APIRouter()
+
+
+@print_.post('/print_name0', name='打印字符0')
+def print_name0(name: str = Body("AAA"), value: str = Body("CCC")):
+    return {
+            name: value,
+            "2": "4"
+    }
 
 
 @print_.get('/print_name', name='打印字符')
