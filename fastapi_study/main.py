@@ -6,21 +6,23 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from Router import PrintRouter
+from Router import PrintRouter, LoginRouter
 
 app = FastAPI()
 app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
 )
 app.include_router(PrintRouter.print_, prefix='/print', tags=['打印服务'])
+app.include_router(LoginRouter.login, prefix='/login', tags=['登录服务'])
 
 if __name__ == '__main__':
     # 启动方式1
     import uvicorn
+
     uvicorn.run('main:app', port=8086, reload=True, debug=True)
     # 启动方式2
     # import os

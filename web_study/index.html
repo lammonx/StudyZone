@@ -27,20 +27,16 @@
     <script type="application/javascript" src="index.js"></script>
 </head>
 <body>
-<a href="https://www.google.com" target="_blank">谷歌</a>
-<a href="https://www.baidu.com" target="_blank">百度</a>
+<label>
+    环境选择:
+    <select id="env_list"></select>
+</label>
 <div id="user_list"></div>
 <br>
-<button id="set_env">应用环境设置</button>
-<br>
-<!--<form method="post" action="https://www.baidu.com" id="login_form">-->
-<!--    <label>-->
-<!--        环境选择:-->
-<!--        <select name="name" form="login_form">-->
-<!--            <option value="牛">牛</option>-->
-<!--        </select>-->
-<!--    </label>-->
-<!--    <button formtarget="_blank">表单按钮</button>-->
-<!--</form>-->
+<label>
+    <input id="user_name" type="text">
+    <button id="quick_login">快捷登录</button>
+    <button id="common_login">常规登录</button>
+</label>
 </body>
 </html>
