@@ -6,7 +6,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from Router import PrintRouter, LoginRouter
+from Router import PrintRouter, LoginRouter, UploadRouter
 
 app = FastAPI()
 app.add_middleware(
@@ -16,6 +16,7 @@ app.add_middleware(
         allow_methods=["*"],
         allow_headers=["*"],
 )
+app.include_router(UploadRouter.upload, prefix='/file', tags=['文件服务'])
 app.include_router(PrintRouter.print_, prefix='/print', tags=['打印服务'])
 app.include_router(LoginRouter.login, prefix='/login', tags=['登录服务'])
 
