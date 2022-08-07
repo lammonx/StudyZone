@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Author   : Lammonx
 # @DateTime : 2022/5/23 20:30
-# depends on flask, werkzeug
+import os
 from string import Template
 
 from fastapi import APIRouter, File, UploadFile
@@ -11,28 +11,17 @@ from fastapi.responses import HTMLResponse, FileResponse
 upload = APIRouter()
 
 
+@upload.get("/index_file")
+def index_html2():
+    # 这里的.在运行时是指FastAPI目录而不是APIRouter
+    html_file = open(r".\Files\index.html", "r", encoding="UTF-8").read()
+    return HTMLResponse(html_file)
+
+
 @upload.get("/index")
 def index_html():
-    html = Template("""
-    <!DOCTYPE html>
-    <html>
-       <body>
-         <div><a href="$HTTP://$HOST:$PORT/downloader" target="_self">下载文件</a></div>
-         <br>
-         <form action = "$HTTP://$HOST:$PORT/uploader_1" method = "POST"
-            enctype = "multipart/form-data">
-            <input type = "file" name = "files" multiple/>
-            <input type = "submit"/>
-         </form>
-         <br>
-         <form action = "$HTTP://$HOST:$PORT/uploader_2" method = "POST"
-            enctype = "multipart/form-data">
-            <input type = "file" name = "files" multiple/>
-            <input type = "submit"/>
-         </form>
-       </body>
-    </html>
-    """)
+    html_str = open(r".\Files\index.html", "r", encoding="UTF-8").read()
+    html = Template(html_str)
     html = html.substitute({"HTTP": "http", "HOST": "127.0.0.1", "PORT": 8086})
     return HTMLResponse(html)
 

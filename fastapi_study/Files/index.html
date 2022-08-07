@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><a href="$HTTP://$HOST:$PORT/downloader" target="_self">下载文件</a></div>
+<br>
+<form action="$HTTP://$HOST:$PORT/uploader_1" method="POST"
+      enctype="multipart/form-data">
+    <input type="file" name="files" multiple/>
+    <input type="submit"/>
+</form>
+<br>
+<form action="$HTTP://$HOST:$PORT/uploader_2" method="POST"
+      enctype="multipart/form-data">
+    <input type="file" name="files" multiple/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
