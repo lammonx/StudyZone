@@ -22,9 +22,9 @@ app.include_router(LoginRouter.login, prefix='/login', tags=['登录服务'])
 
 if __name__ == '__main__':
     # 启动方式1
-    import uvicorn
+    # import uvicorn
 
-    uvicorn.run('main:app', port=8086, reload=True, debug=True)
+    # uvicorn.run('main:app', port=8086, reload=True, debug=True)
     # 启动方式2
-    # import os
-    # os.system('uvicorn main:app --port 8085  --reload')
+    import os
+    os.system('uvicorn main:app --port 8085  --reload')
